@@ -157,7 +157,7 @@ try{
 taguser = conn.getName(m.sender)
 _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let pp = await conn.profilePictureUrl(`${global.conn.user.jid.split`@`[0]}` + '@s.whatsapp.net', 'image').catch(_ => gataMenu.getRandom())
-let aa = `*_🍄 ${lenguajeGB.smsCreA()} ${taguser}, ${lenguajeGB.smsCreB()} ${_package.name} ${lenguajeGB.smsCreC()}_*\n\n` 
+let aa = `*_${lenguajeGB.smsCreA()} ${taguser}, ${lenguajeGB.smsCreB()} 𝙳𝙰𝚁𝙺𝙱𝙾𝚃²⁰²³ ${lenguajeGB.smsCreC()}_*\n\n` 
 let bb = `${packname}\n*◎ Wa.me/${owner[0][0]}*\n\n`
 await conn.sendFile(m.chat, pp, 'gata.jpg', aa + bb + ig, fkontak) 
 } catch (e) {
