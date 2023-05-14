@@ -1,28 +1,28 @@
-import { watchFile, unwatchFile } from 'fs'  
+import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios'
-import moment from 'moment-timezone' 
-import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js' 
+import moment from 'moment-timezone'
+import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js'
 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰   
 
 global.owner = [
-['12362000021', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 🌻🐈', true], 
-['59822228462', '𝙊𝙬𝙣𝙚𝙧 (1) 💻', true],  
-['972529277026', '𝙊𝙬𝙣𝙚𝙧 (2) 💻', true],  
-['59894808483'], ['5214531173598'], ['5214531106422'], ['5492266613038'], ['51914725037'], ['593968585383'], ['5492266466080'], ['595986674310'],
-['584125778026']]
+  ['201557241739', '𝘿 َِ𝘼 َِ𝙍 َِ𝙆 ِ۬𝙓 َ𝘽 َ𝙊 َْ𝙏 𖤐 ↯', true],
+  ['201129491146', '𝙊𝙬𝙣𝙚𝙧 (1) 💻', true],
+  ['201129491146', '𝙊𝙬𝙣𝙚𝙧 (2) 💻', true],
+  ['201129491146'], ['201129491146'], ['201129491146'], ['201129491146'], ['201129491146'], ['201129491146'], ['201129491146'], ['201129491146'],
+  ['201129491146']]
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
-global.mods = [] 
+global.mods = []
 global.prems = []
-   
-  
+
+
 //⊱ ━━━━━.⋅ IDIOMA : LENGUAJE ⋅.━━━━ ⊰  
 //Agrega el Idioma que quieres que tenga GataBotLite-MD
 //Add the language you want GataBotLite-MD to have
@@ -30,8 +30,8 @@ global.prems = []
 //  en = English         pt = Português 
 //  ar = عرب  
 
-global.lenguajeGB = es  //Idioma de GataBot, Ejemplo: es | en | pt...
- 
+global.lenguajeGB = ar  //Idioma de GataBot, Ejemplo: es | en | pt...
+
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
@@ -51,7 +51,7 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['BrunoSobrino']
 global.itsrose = ['4b146102c4d500809da9d1ff']
 
-global.APIs = { 
+global.APIs = {
   xteam: 'https://api.xteam.xyz',
   dzx: 'https://api.dhamzxploit.my.id',
   lol: 'https://api.lolhuman.xyz',
@@ -59,28 +59,28 @@ global.APIs = {
   neoxr: 'https://api.neoxr.my.id',
   zenzapis: 'https://api.zahwazein.xyz',
   akuari: 'https://api.akuari.my.id',
-  akuari2: 'https://apimu.my.id',	
+  akuari2: 'https://apimu.my.id',
   fgmods: 'https://api-fgmods.ddns.net',
   botcahx: 'https://api.botcahx.biz.id',
-  ibeng: 'https://api.ibeng.tech/docs',	
+  ibeng: 'https://api.ibeng.tech/docs',
   rose: 'https://api.itsrose.site',
-  popcat : 'https://api.popcat.xyz',
-  xcoders : 'https://api-xcoders.site'
+  popcat: 'https://api.popcat.xyz',
+  xcoders: 'https://api-xcoders.site'
 },
-global.APIKeys = { 
-  'https://api.xteam.xyz': `${keysxteam}`,
-  'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
-  'https://api.neoxr.my.id': `${keysneoxr}`,	
-  'https://violetics.pw': 'beta',
-  'https://api.zahwazein.xyz': `${keysxxx}`,
-  'https://api-fgmods.ddns.net': 'fg-dylux',
-  'https://api.botcahx.biz.id': 'Admin',
-  'https://api.ibeng.tech/docs': 'tamvan',
-  'https://api.itsrose.site': 'Rs-Zeltoria',
-  'https://api-xcoders.site': 'Frieren'
-}
+  global.APIKeys = {
+    'https://api.xteam.xyz': `${keysxteam}`,
+    'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
+    'https://api.neoxr.my.id': `${keysneoxr}`,
+    'https://violetics.pw': 'beta',
+    'https://api.zahwazein.xyz': `${keysxxx}`,
+    'https://api-fgmods.ddns.net': 'fg-dylux',
+    'https://api.botcahx.biz.id': 'Admin',
+    'https://api.ibeng.tech/docs': 'tamvan',
+    'https://api.itsrose.site': 'Rs-Zeltoria',
+    'https://api-xcoders.site': 'Frieren'
+  }
 
-global.mods = [] 
+global.mods = []
 
 
 /*************************/
@@ -88,21 +88,21 @@ global.cheerio = cheerio
 global.fs = fs
 global.fetch = fetch
 global.axios = axios
-global.moment = moment	
+global.moment = moment
 
 //⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
 
-global.packname = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 🌻🐈'
-global.author = '𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨'
+global.packname = '𝘿 َِ𝘼 َِ𝙍 َِ𝙆 ِ۬𝙓 َ𝘽 َ𝙊 َْ𝙏 𖤐 ↯'
+global.author = '+201557241739'
 
 //⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
 
 global.official = [ // Agregate si eres Owner
-['18059196237', 'Gata Dios 💻', 1], 
-['5492266466080', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
-['5214531106422', '𝗖𝗿𝗲𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-['59894808483', '𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹', 1],
-['5521989092076', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1]] 
+  ['18059196237', 'Gata Dios 💻', 1],
+  ['5492266466080', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+  ['5214531106422', '𝗖𝗿𝗲𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+  ['59894808483', '𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗢𝗳𝗶𝗰𝗶𝗮𝗹', 1],
+  ['5521989092076', '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1]]
 
 global.mail = '' //agrega tú correo
 global.desc = '' //agrega una descripción corta
@@ -112,34 +112,34 @@ global.country = '' //agrega tú país ejemplo: 🇪🇨
 global.vs = '1.0.1'
 global.vsJB = '3.0'
 
-global.gt = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿'
-global.yt = 'https://youtube.com/@gatadios'
-global.yt2 = 'https://www.youtube.com/watch?v=Ko019wvu2Tc&t=71s'
-global.ig = 'https://www.instagram.com/gata_dios'
-global.md = 'https://github.com/GataNina-Li/GataBotLite-MD'
-global.fb = 'https://www.facebook.com/groups/872989990425789/'
+global.gt = '𝘿 َِ𝘼 َِ𝙍 َِ𝙆 ِ۬𝙓 َ𝘽 َ𝙊 َْ𝙏 𖤐 ↯'
+global.yt = 'https://youtube.com/'
+global.yt2 = 'https://www.youtube.com'
+global.ig = 'https://www.instagram.com/r8_2z'
+global.md = 'https://github.com'
+global.fb = 'https://www.facebook.com'
 
-global.nna = 'https://chat.whatsapp.com/DVhu9S9Zr7cBFFl26N61U3' //UPDATE GATABOT
-global.nna2 = 'https://chat.whatsapp.com/IXZ0aBryB1cHjNxe0VIm76' //Help
-global.nn = 'https://chat.whatsapp.com/EMP0ZURA5kXHG73X5PqMU1' //Grupo 1
-global.nnn = 'https://chat.whatsapp.com/DUU638FK74P7KWmRAd4u4J' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/Kt5EXwUhcO8Ay76CIDLs7d' //Grupo 3
-global.nnntt = 'https://chat.whatsapp.com/K0UCo7igED92q9c1w2DiEH' //Grupo 4
-global.nnnttt = 'https://chat.whatsapp.com/HJLpWS2BDrWCPH6uAUKIRG' //Grupo 5
-global.nnnttt2 = 'https://chat.whatsapp.com/F63pQpKCsWiF2zFXxhYnky' //Grupo 6 COL
-global.nnnttt3 = 'https://chat.whatsapp.com/CcJKHrxGBWAAH3PiBL07JS' //Grupo 7 COL
-global.nnnttt4 = 'https://chat.whatsapp.com/ErnXC51D9lWJtRWOD4stR2' //Grupo 8 COL
-global.nnnttt5 = 'https://chat.whatsapp.com/ErnXC51D9lWJtRWOD4stR2' //Grupo 9 COL
-global.paypal = 'https://paypal.me/OficialGD'
-global.asistencia = 'Wa.me/18059196237' //Dudas? escríbeme...
+global.nna = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //UPDATE GATABOT
+global.nna2 = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Help
+global.nn = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 1
+global.nnn = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 2
+global.nnnt = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 3
+global.nnntt = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 4
+global.nnnttt = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 5
+global.nnnttt2 = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 6 COL
+global.nnnttt3 = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 7 COL
+global.nnnttt4 = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 8 COL
+global.nnnttt5 = 'https://chat.whatsapp.com/KHfaRkUhAHcAfEaKsXqxem' //Grupo 9 COL
+global.paypal = 'https://paypal.me/mxd7xx'
+global.asistencia = 'Wa.me/201129491146' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
 //⊱ ━━━━━.⋅ Información | Information ⋅.━━━━ ⊰
 
-global.wm = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿 🌻🐈 : 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨'
-global.igfg = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿'
+global.wm = '𝘿 َِ𝘼 َِ𝙍 َِ𝙆 ِ۬𝙓 َ𝘽 َ𝙊 َْ𝙏 𖤐 ↯ | *حقوق*'
+global.igfg = '𝘿 َِ𝘼 َِ𝙍 َِ𝙆 ِ۬𝙓 َ𝘽 َ𝙊 َْ𝙏 𖤐 ↯'
 //global.wait = lenguajeGB.smsWait()
 global.nomorown = owner[0][0]
 
@@ -167,36 +167,36 @@ global.imagen13 = fs.readFileSync('./media/menus/img12.jpg')
 
 //━━━━━━━━━━━━━━ img ━━━━━━━━━
 
-global.img = 'https://i.imgur.com/AwlL9kc.jpeg'
-global.img2 = 'https://i.imgur.com/p18q1Ok.jpeg'
+global.img = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img2 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
 
-global.img3 = 'https://i.imgur.com/01Z8a0a.jpeg' //ft rectangular
+global.img3 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg' //ft rectangular
 
-//global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem   //no
-//global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem   //no
+//global.img3 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg' //prem   //no
+//global.img4 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg' //prem   //no
 
-global.img5 = 'https://i.imgur.com/80uz37R.jpeg'
-global.img6 = 'https://i.imgur.com/3zSvnGY.jpeg'
-global.img7 = 'https://i.imgur.com/WY4r6up.jpeg'
-global.img8 = 'https://i.imgur.com/qCO3RYa.jpeg'
-global.img9 = 'https://i.imgur.com/dWk51FS.jpeg'
+global.img5 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img6 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img7 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img8 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img9 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
 
-global.img10 = 'https://i.imgur.com/T4NjKMi.jpeg'
-global.img11 = 'https://i.imgur.com/jqyWSlh.jpeg'
-global.img12 = 'https://i.imgur.com/mpCRttm.jpeg'
-global.img13 = 'https://i.imgur.com/O04epJI.jpeg'
-global.img14 = 'https://i.imgur.com/jfbuJRU.jpeg'
-global.img15 = 'https://i.imgur.com/DzqUXkW.jpeg'
+global.img10 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img11 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img12 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img13 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img14 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img15 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
 
-//global.img16 = 'https://i.imgur.com/11MRjo4.jpeg' //+18   //no
+//global.img16 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg' //+18   //no
 
-global.img17 = 'https://i.imgur.com/Y3ZWq7z.jpeg'
-global.img18 = 'https://i.imgur.com/kaUN1Nz.jpeg'
-global.img19 = 'https://i.imgur.com/7yJ22hJ.jpeg'
-global.img20 = 'https://i.imgur.com/qcD353P.jpeg'
-global.img21 = 'https://i.imgur.com/3fJTaX6.jpeg'
+global.img17 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img18 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img19 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img20 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
+global.img21 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg'
 
-global.img21 = 'https://i.imgur.com/akofqcE.jpeg' //paypal
+global.img21 = 'https://telegra.ph/file/3b5dd8eaefa86bde71429.jpg' //paypal
 
 global.welgata = [ig, yt2, yt2, ig, md, ig, yt, paypal, yt2, yt2, ig, fb]
 global.redesMenu = [nna, nn, nnn, nnnt, nnntt, nnnttt, nnnttt2, nnnttt3, nnnttt4, nnnttt5, md, ig, paypal, yt, asistencia, fb]
@@ -214,7 +214,7 @@ global.multiplier = 60 // Cuanto más alto, más difícil subir de nivel
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
-unwatchFile(file)
-console.log(chalk.bold.greenBright(lenguajeGB['smsConfigBot']().trim()))
-import(`${file}?update=${Date.now()}`)
+  unwatchFile(file)
+  console.log(chalk.bold.greenBright(lenguajeGB['smsConfigBot']().trim()))
+  import(`${file}?update=${Date.now()}`)
 })

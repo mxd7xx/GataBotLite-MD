@@ -85,10 +85,10 @@ global.db.data.chats[m.chat] = {}
                 
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false                    
-if (!('welcome' in chat)) chat.welcome = true                    
+if (!('welcome' in chat)) chat.welcome = false                    
 if (!('detect' in chat)) chat.detect = true                    
-if (!('sWelcome' in chat)) chat.sWelcome = ''                    
-if (!('sBye' in chat)) chat.sBye = ''                    
+if (!('sWelcome' in chat)) chat.sWelcome = false                    
+if (!('sBye' in chat)) chat.sBye = false                    
 if (!('sPromote' in chat)) chat.sPromote = ''                    
 if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('delete' in chat)) chat.delete = true                        
@@ -105,16 +105,16 @@ if (!('antiTwitter' in chat)) chat.antiInstagram = false
 if (!('antifake' in chat)) chat.antifake = false 
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('antitoxic' in chat)) chat.antitoxic = true 
-if (!('reaction' in chat)) chat.reaction = true
+if (!('reaction' in chat)) chat.reaction = false
 if (!isNumber(chat.expired)) chat.expired = 0
 
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
-welcome: true,
+welcome: false,
 detect: true,
-sWelcome: '',
-sBye: '',
+sWelcome: false,
+sBye: false,
 sPromote: '',
 sDemote: '', 
 delete: true,
@@ -131,7 +131,7 @@ antiTwitter: false,
 antifake: false,
 antiTraba: true,
 antitoxic: true,
-reaction: true,
+reaction: false,
 expired: 0,
 }
             
@@ -325,7 +325,7 @@ if (plugin.private && m.isGroup) { // CHAT PRIVADO
 fail('private', m, this)
 continue
 }
-if (plugin.register == true && _user.registered == false) { // REGISTRO
+if (plugin.register == false && _user.registered == false) { // REGISTRO
 fail('unreg', m, this)
 continue
 }
@@ -438,7 +438,7 @@ if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])
 	    
 if (!db.data.chats[m.chat].reaction && m.isGroup) return
 if (!m.fromMem && m.text.match(/(ata|des|able|izo|ido|.-.|._.|:)|:(|:v|v:|o.o|;v|v;|v':|:'v)/gi)) {
-let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
+let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "💘", "💝", "💟", "🌝", "😎", "🔥", "🐦"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
 }}
